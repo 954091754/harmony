@@ -12,9 +12,7 @@ class CatalogueViewModel {
    */
   getCatalogueData(): CatalogueItemData[] {
     const catalogueData: CatalogueItemData[] =
-      [new CatalogueItemData(0, $r('app.string.responsive_layout'), RouteConstants.RESPONSIVE_ROUTE),
-        new CatalogueItemData(1, $r('app.string.adaptive_layout'), RouteConstants.ADAPTIVE_ROUTE),
-        new CatalogueItemData(2, $r('app.string.system_cap'), RouteConstants.SYSTEM_CAPABILITIES_ROUTE)];
+      [new CatalogueItemData(0, $r('app.string.responsive_layout'), RouteConstants.RESPONSIVE_ROUTE)];
     return catalogueData;
   }
 }
