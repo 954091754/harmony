@@ -40,13 +40,18 @@ struct Index {
           this.gotoHome()
         })
 
-      Image($r('app.media.ic_launcher'))
-        .width(60)
-        .height(60)
-        .position({
-          x: '50%', // 水平中点向左补偿半宽
-          y: '90%'  // 垂直中点向上补偿半高
-        })
+      Stack({ alignContent: Alignment.Bottom }) {
+        Row() {
+          Image($r('app.media.ic_launcher'))
+            .width(60)
+            .height(60)
+        }
+        .justifyContent(FlexAlign.Center)   // 水平方向居中
+        .width('100%')
+        .margin({ bottom: 40 }) // 距离底部 40px
+      }
+      .width('100%')
+      .height('100%')
     }
     .width('100%')
     .height('100%')
