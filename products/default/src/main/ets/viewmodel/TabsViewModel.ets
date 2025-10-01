@@ -6,32 +6,32 @@ export class TabsViewModel {
       {
         id: 0,
         name: $r('app.string.tab_home'),
-        icon: $r('sys.media.ohos_ic_public_camera'), // 系统首页图标
-        selectIcon: $r('sys.media.ohos_ic_public_camera') // 系统首页填充图标
+        icon: $r('sys.media.ohos_ic_public_scan'), // 系统首页图标
+        selectIcon: $r('sys.media.ohos_ic_public_scan') // 系统首页填充图标
       },
       {
         id: 1,
         name: $r('app.string.tab_media'),
-        icon: $r('sys.media.ohos_ic_public_camera'), // 系统电影图标
-        selectIcon: $r('sys.media.ohos_ic_public_camera')
+        icon: $r('sys.media.ohos_ic_public_email'), // 系统电影图标
+        selectIcon: $r('sys.media.ohos_ic_public_email')
       },
       {
         id: 2,
         name: $r('app.string.tab_group'),
-        icon: $r('sys.media.ohos_ic_public_camera'), // 系统人群图标
-        selectIcon: $r('sys.media.ohos_ic_public_camera')
+        icon: $r('sys.media.ohos_ic_public_edit'), // 系统人群图标
+        selectIcon: $r('sys.media.ohos_ic_public_edit')
       },
       {
         id: 3,
         name: $r('app.string.tab_market'),
-        icon: $r('sys.media.ohos_ic_public_camera'), // 系统购物车图标
-        selectIcon: $r('sys.media.ohos_ic_public_camera')
+        icon: $r('sys.media.ohos_ic_public_more'), // 系统购物车图标
+        selectIcon: $r('sys.media.ohos_ic_public_more')
       },
       {
         id: 4,
         name: $r('app.string.tab_profile'),
-        icon: $r('sys.media.ohos_ic_public_camera'), // 系统个人图标
-        selectIcon: $r('sys.media.ohos_ic_public_camera')
+        icon: $r('sys.media.ohos_ic_public_add'), // 系统个人图标
+        selectIcon: $r('sys.media.ohos_ic_public_add')
       }
     ];
   }
