@@ -13,12 +13,24 @@
       "value": "label"
     },
     {
-      "name": "grid_title_label",
-      "value": "title"
+      "name": "tab_home",
+      "value": "首页"
     },
     {
-      "name": "tab_name",
-      "value": "tab"
+      "name": "tab_media",
+      "value": "书影音"
+    },
+    {
+      "name": "tab_group",
+      "value": "小组"
+    },
+    {
+      "name": "tab_market",
+      "value": "市集"
+    },
+    {
+      "name": "tab_profile",
+      "value": "我"
     }
   ]
 }

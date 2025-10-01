@@ -114,7 +114,7 @@ export const COLUMN_HEIGHT: string = '100%';
 /**
  * The number of tab component.
  */
-export const TAB_SIZE: number = 4;
+export const TAB_SIZE: number = 5;
 
 /**
  * The number of grid item.

@@ -23,14 +23,17 @@ export struct TabIndex {
       justifyContent: FlexAlign.Center,
       alignItems: ItemAlign.Center
     }) {
-      SymbolGlyph($r('sys.symbol.person_crop_circle_fill_1'))
-        .fontColor(this.currentIndex === index ?
-          [$r('sys.color.ohos_id_color_text_primary_activated')] : [$r('sys.color.ohos_id_color_text_secondary')])
-        .fontSize($r('app.float.tab_img_width'))
+      // 使用系统图标
+      Image(this.currentIndex === index ? tabBar.selectIcon : tabBar.icon)
+        .width($r('app.float.tab_img_width'))
+        .height($r('app.float.tab_img_height'))
+        .objectFit(ImageFit.Contain)
+
       Text(tabBar.name)
         .fontSize($r('app.float.tab_text_font_size'))
         .fontColor(this.currentIndex === index ?
-        $r('sys.color.ohos_id_color_text_primary_activated') : $r('sys.color.ohos_id_color_text_secondary'))
+        $r('sys.color.ohos_id_color_text_primary_activated') :
+        $r('sys.color.ohos_id_color_text_secondary'))
         .margin({
           top: $r('app.float.tab_text_sm_top'),
           left: $r('app.float.tab_text_sm_left')

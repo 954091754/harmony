@@ -1,29 +1,41 @@
-import * as CommonConstants from '../constants/CommonConstants';
 import { TabBarItem } from './TabBarItem';
 
-/**
- * Binds data to components and provides interfaces.
- */
 export class TabsViewModel {
-  /**
-   * Get item information for the tab.
-   *
-   * @return {Array<TabBarItem>} tabItems
-   */
   getTabData(): TabBarItem[] {
-    const tabItems: TabBarItem[] = [];
-    for (let i = 0; i < CommonConstants.TAB_SIZE; i++) {
-      const itemInfo: TabBarItem = new TabBarItem();
-      itemInfo.id = i;
-      itemInfo.name = $r('app.string.tab_name');
-      itemInfo.icon = $r('app.media.ic_tabs_icon');
-      itemInfo.selectIcon = $r('app.media.ic_tabs_icon_selected');
-      tabItems.push(itemInfo);
-    }
-    return tabItems;
+    return [
+      {
+        id: 0,
+        name: $r('app.string.tab_home'),
+        icon: $r('sys.media.ohos_ic_public_camera'), // 系统首页图标
+        selectIcon: $r('sys.media.ohos_ic_public_camera') // 系统首页填充图标
+      },
+      {
+        id: 1,
+        name: $r('app.string.tab_media'),
+        icon: $r('sys.media.ohos_ic_public_camera'), // 系统电影图标
+        selectIcon: $r('sys.media.ohos_ic_public_camera')
+      },
+      {
+        id: 2,
+        name: $r('app.string.tab_group'),
+        icon: $r('sys.media.ohos_ic_public_camera'), // 系统人群图标
+        selectIcon: $r('sys.media.ohos_ic_public_camera')
+      },
+      {
+        id: 3,
+        name: $r('app.string.tab_market'),
+        icon: $r('sys.media.ohos_ic_public_camera'), // 系统购物车图标
+        selectIcon: $r('sys.media.ohos_ic_public_camera')
+      },
+      {
+        id: 4,
+        name: $r('app.string.tab_profile'),
+        icon: $r('sys.media.ohos_ic_public_camera'), // 系统个人图标
+        selectIcon: $r('sys.media.ohos_ic_public_camera')
+      }
+    ];
   }
 }
 
 const tabsViewModel = new TabsViewModel();
-
 export default tabsViewModel;
