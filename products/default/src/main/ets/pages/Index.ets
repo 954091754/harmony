@@ -75,9 +75,10 @@ struct Index {
   }
 
   private gotoHome() {
-    // if (this.timerId !== -1) {
-    //   clearInterval(this.timerId)
-    // }
-    // router.replaceUrl({ url: 'pages/Index' })
+    if (this.timerId !== -1) {
+      clearInterval(this.timerId)
+    }
+    router.clear()  // 清空整个页面栈
+    router.pushUrl({ url: 'pages/Root' }) // Root 页面变成新的首页
   }
 }
