@@ -1,68 +1,62 @@
-import { Home } from './Home'
-import { Media } from './Media'
-import { Group } from './Group'
-import { Market } from './Market'
-import { Profile } from './Profile'
+import * as CommonConstants from '../constants/CommonConstants';
+import { TabBarItem } from '../viewmodel/TabBarItem';
+import TabsViewModel from '../viewmodel/TabsViewModel';
 
 @Entry
 @Component
-struct Root {
-  @State currentIndex: number = 0
+export struct Root {
+  build() {
+    Column() {
+      TabIndex()
+    }
+  }
+}
 
-  private tabTitles: string[] = ['首页', '书影音', '小组', '市集', '我']
+@Component
+export struct TabIndex {
+  @State currentIndex: number = 0;
+  @State tabs: TabBarItem[] = TabsViewModel.getTabData();
+
+  @Builder tabBarBuilder(tabBar: TabBarItem, index?: number) {
+    Flex({
+      direction: FlexDirection.Column,
+      justifyContent: FlexAlign.Center,
+      alignItems: ItemAlign.Center
+    }) {
+      SymbolGlyph($r('sys.symbol.person_crop_circle_fill_1'))
+        .fontColor(this.currentIndex === index ?
+          [$r('sys.color.ohos_id_color_text_primary_activated')] : [$r('sys.color.ohos_id_color_text_secondary')])
+        .fontSize($r('app.float.tab_img_width'))
+      Text(tabBar.name)
+        .fontSize($r('app.float.tab_text_font_size'))
+        .fontColor(this.currentIndex === index ?
+        $r('sys.color.ohos_id_color_text_primary_activated') : $r('sys.color.ohos_id_color_text_secondary'))
+        .margin({
+          top: $r('app.float.tab_text_sm_top'),
+          left: $r('app.float.tab_text_sm_left')
+        })
+    }
+    .width(CommonConstants.FLEX_TAB_BAR_WIDTH)
+    .height(CommonConstants.FLEX_TAB_BAR_HEIGHT)
+  }
 
   build() {
     Column() {
-      // 顶部内容区（切换页面）
-      Stack() {
-        if (this.currentIndex === 0) {
-          Home()
-        } else if (this.currentIndex === 1) {
-          Media()
-        } else if (this.currentIndex === 2) {
-          Group()
-        } else if (this.currentIndex === 3) {
-          Market()
-        } else if (this.currentIndex === 4) {
-          Profile()
-        }
-      }
-      .width('100%')
-      .height('100%')
-
-      // 底部 TabBar
-      Row() {
-        ForEach(this.tabTitles, (title: string, index: number) => {
-          Column() {
-            Image($r('app.media.ic_launcher')) // 这里可以换成对应 tab 的图标
-              .width(24)
-              .height(24)
-              .margin({ bottom: 4 })
-              .objectFit(ImageFit.Contain)
-              .renderMode(ImageRenderMode.Original)
-              .interpolation(ImageInterpolation.High)
-              .colorBlend(this.currentIndex === index ? Color.Blue : Color.Gray)
-
-            Text(title)
-              .fontSize(12)
-              .fontColor(this.currentIndex === index ? Color.Blue : Color.Gray)
+      Tabs({ barPosition: BarPosition.End }) {
+        ForEach(this.tabs, (item: TabBarItem, index?: number) => {
+          TabContent() {
+            // 这里留空，不显示任何页面内容
           }
-          .justifyContent(FlexAlign.Center)
-          .alignItems(HorizontalAlign.Center)
-          .width('20%')
-          .height(56)
-          .onClick(() => {
-            this.currentIndex = index
-          })
-        }, (title: string) => title)
+          .tabBar(this.tabBarBuilder(item, index))
+        }, (item: TabBarItem, _index: number) => item.id.toString())
       }
-      .width('100%')
-      .height(56)
-      .backgroundColor(Color.White)
-      .shadow({ radius: 8, color: Color.Gray, offsetX: 0, offsetY: -2 })
+      .vertical(CommonConstants.TAB_SM_VERTICAL)
+      .barWidth(CommonConstants.TAB_SM_BAR_WIDTH)
+      .barHeight(CommonConstants.TAB_SM_BAR_HEIGHT)
+      .onChange((index: number) => {
+        this.currentIndex = index;
+      })
     }
-    .width('100%')
-    .height('100%')
-    .backgroundColor(Color.White)
+    .backgroundColor($r('sys.color.white'))
   }
 }
