@@ -1,6 +1,12 @@
 import * as CommonConstants from '../constants/CommonConstants';
 import { TabBarItem } from '../viewmodel/TabBarItem';
 import TabsViewModel from '../viewmodel/TabsViewModel';
+// import { Home } from './Home';
+import { Market } from './Market';
+import { Group } from './Group';
+import { Profile } from './Profile';
+import { Media } from './Media';
+import { Home } from './../HomePage/Index';
 
 @Entry
 @Component
@@ -48,7 +54,18 @@ export struct TabIndex {
       Tabs({ barPosition: BarPosition.End }) {
         ForEach(this.tabs, (item: TabBarItem, index?: number) => {
           TabContent() {
-            // 这里留空，不显示任何页面内容
+            // 根据索引加载对应页面
+            if (index === 0) {
+              Home()
+            } else if (index === 1) {
+              Media()
+            } else if (index === 2) {
+              Group()
+            } else if (index === 3) {
+              Market()
+            } else if (index === 4) {
+              Profile()
+            }
           }
           .tabBar(this.tabBarBuilder(item, index))
         }, (item: TabBarItem, _index: number) => item.id.toString())

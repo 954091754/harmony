@@ -1,6 +1,3 @@
 {
-  "src": [
-    "pages/Index",
-    "pages/Root"
-  ]
+  "src" : [ "HomePage/Index", "pages/Index", "pages/Root" ]
 }

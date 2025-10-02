@@ -2,7 +2,7 @@
 export struct Market {
   build() {
     Column() {
-      Text('这里是 首页')
+      Text('这里是 市集')
         .fontSize(20)
         .fontWeight(FontWeight.Bold)
     }
