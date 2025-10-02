@@ -1,12 +1,11 @@
 import * as CommonConstants from '../constants/CommonConstants';
 import { TabBarItem } from '../viewmodel/TabBarItem';
 import TabsViewModel from '../viewmodel/TabsViewModel';
-// import { Home } from './Home';
+import { Home } from './Home';
 import { Market } from './Market';
 import { Group } from './Group';
 import { Profile } from './Profile';
 import { Media } from './Media';
-import { Home } from './../HomePage/Index';
 
 @Entry
 @Component
