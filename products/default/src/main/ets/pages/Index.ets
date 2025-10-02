@@ -3,7 +3,7 @@ import { router } from '@kit.ArkUI'
 @Entry
 @Component
 struct Index {
-  @State countdown: number = 0   // 响应式变量
+  @State countdown: number = 3   // 响应式变量
   private timerId: number = -1
 
   build() {
