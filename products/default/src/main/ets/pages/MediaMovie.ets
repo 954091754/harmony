@@ -37,7 +37,7 @@ export struct MediaMovie {
   @State selectedTabIndex: number = 0    // 互斥 Label 索引
 
   build() {
-    Column() {
+    Column({ space: 16 }){
       // ===== 菜单栏 =====
       Row() {
         ForEach(this.menuItems, (item: GeneratedObjectLiteralInterface) => {
@@ -55,7 +55,6 @@ export struct MediaMovie {
       }
       .width('100%')
       .backgroundColor('#FFFFFF')
-      .padding({ top: 12, bottom: 12 })
 
       // ===== 轮播图 =====
       Column() {
@@ -72,8 +71,6 @@ export struct MediaMovie {
         .alignContent(Alignment.Center)
         .width('100%')
         .height(180)
-        .margin({ top: 16 })
-
         // 指示器
         Row({ space: 8 }) {
           ForEach(this.bannerList, (_: Resource, idx: number) => {
@@ -110,7 +107,6 @@ export struct MediaMovie {
       }
       .justifyContent(FlexAlign.SpaceBetween)
       .alignItems(VerticalAlign.Center)
-      .padding({ top: 16, bottom: 8 })
       .width('100%')
 
       // ===== Grid 电影列表 =====
@@ -134,7 +130,6 @@ export struct MediaMovie {
       .rowsGap(10)
       .columnsGap(10)
       .columnsTemplate('1fr 1fr 1fr')
-      .padding({ bottom: 20 })
     }
     .width('100%')
     .onAppear(() => {
